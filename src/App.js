@@ -6,7 +6,7 @@ import QuizApp from './components/QuizApp';
 function App() {
   return (
     <div className="App">
-      <QuizApp/>
+      <QuizApp questionCount={5}/>
     </div>
   );
 }
