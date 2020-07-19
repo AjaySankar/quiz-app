@@ -15,7 +15,7 @@ function QuizApp(props) {
            <div className="quiz-container">
                {
                    quizBank.map(({questionId, ...questionInfo}) => {
-                       return <Question key={questionId} questionInfo={questionInfo}/>
+                       return <Question key={questionId} id={questionId} questionInfo={questionInfo}/>
                    })
                }
            </div>
