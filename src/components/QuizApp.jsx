@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import QuizService from './QuizService'
 import Question from './Question'
+import Results from './Results'
 
 function QuizApp(props) {
     const [quizBank, updateQuizBank] = useState([])
@@ -27,6 +28,7 @@ function QuizApp(props) {
            <h1> Quiz Bee </h1>
            <div className="quiz-container">
                {
+                   noOfAnswerd === questionCount ? <Results total={questionCount} correct={score}/> :
                    quizBank.map(({questionId, ...questionInfo}) => {
                        return <Question 
                         key={questionId}
