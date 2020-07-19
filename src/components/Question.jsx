@@ -1,20 +1,23 @@
-import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState } from 'react';
 
 function Question(props) {
-    const { id, questionInfo} = props
+    const { id, questionInfo, handleAnswerSelected} = props
     const { question, answers } = questionInfo
+    const [ selectedAnswer, updateSelectedAnswer ] = useState('')
     return (
         <div>
             <h5>
                 {question}
             </h5>
             {
-                answers.map(answer => 
+                answers.filter(answer => selectedAnswer.length === 0 || answer === selectedAnswer).map((answer, index) => 
                     <input type="button" 
                         value={answer}
-                        key={uuidv4()}
-                        onClick={(e) => {window.console.log(e.target.value)}}>    
+                        key={index}
+                        onClick={({target: {value}}) => {
+                            updateSelectedAnswer(value)
+                            handleAnswerSelected(id, value)
+                        }}>
                     </input>)
             }
         </div>
