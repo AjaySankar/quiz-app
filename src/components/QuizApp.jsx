@@ -25,7 +25,7 @@ function QuizApp(props) {
     }, []);
     return (
         <div>
-           <h1> Quiz Bee </h1>
+           <h1 className="heading"> QuizBee </h1>
            <div className="quiz-container">
                {
                    noOfAnswerd === questionCount ? <Results total={questionCount} correct={score}/> :

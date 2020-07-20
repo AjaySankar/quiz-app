@@ -6,7 +6,7 @@ function Question(props) {
     const [ selectedAnswer, updateSelectedAnswer ] = useState('')
     return (
         <div className="question-container">
-            <h5>
+            <h5 className="question">
                 {question}
             </h5>
             <div className="options-container">
